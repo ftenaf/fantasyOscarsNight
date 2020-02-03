@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar> <a class="home-button" routerLink="/categories">Menú
+        <img class="app-logo" src="../../../assets/images/logo.png" />
+      </a></mat-toolbar>
+    <div fxLayout="column" style="height:55vh;">
+      <div fxFlex>
+        <mat-nav-list class="navigation-list">
+          <a mat-list-item>
+            <mat-icon class="material-icons">exit_to_app</mat-icon><span class="navigation-item-label">Logout</span>
+          </a>
+          <a class="navigation-item" mat-list-item routerLink="/sign-in" routerLinkActive="active">
+            <mat-icon class="material-icons">account_box</mat-icon><span class="navigation-item-label">Login</span>
+          </a>
+          <mat-divider class="navigation-divider"></mat-divider>
+          <a class="navigation-item" mat-list-item routerLink="/categories" routerLinkActive="active">
+            <mat-icon class="material-icons">how_to_vote</mat-icon><span class="navigation-item-label">Categories</span>
+          </a>
+          <a class="navigation-item" mat-list-item routerLink="/movies" routerLinkActive="active">
+            <mat-icon class="material-icons">movie</mat-icon><span class="navigation-item-label">Movies</span>
+          </a>
+          <a class="navigation-item" mat-list-item routerLink="/dashboard" routerLinkActive="active">
+            <mat-icon class="material-icons">poll</mat-icon><span class="navigation-item-label">Results</span>
+          </a>
+        </mat-nav-list>
+      </div>
+      <footer fxFlexOffset="auto" fxLayoutAlign="center center">
+        <a href="http://www.themoviedb.org/" target="blank"><img src="../../../assets/images/tmdb.png"
+            style="width: 9vh;"></a>
+      </footer>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar class="sidenav-content-toolbar" color="primary">
+      <button mat-icon-button class="menu-button" type="button" aria-label="Toggle sidenav" (tap)="drawer.toggle()">
+        <i class="material-icons">menu</i>
+      </button>
+      <span class="filler">
+        Fantasy Oscars Night
+      </span>
+    </mat-toolbar>
+    <router-outlet>
+      <app-loading-spinner></app-loading-spinner>
+    </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

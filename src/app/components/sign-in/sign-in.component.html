@@ -1,0 +1,34 @@
+<form [formGroup]="signinForm" class="form">
+  <h2>Entra con tu cuenta</h2>
+  <mat-form-field>
+    <input matInput placeholder="Email" type="email" formControlName="email" autocomplete="email" required>
+    <mat-hint *ngIf="!emailInput.value">Escribe tu dirección de email</mat-hint>
+    <mat-error *ngIf="!emailInput.valid">
+      {{emailInputError}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    <mat-hint *ngIf="!passwordInput.value">Escribe tu contraseña</mat-hint>
+    <mat-error *ngIf="!passwordInput.valid">
+      {{passwordInputError}}
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="loginEmail()" [disabled]="!signinForm.valid">Entra</button>
+  <ul>
+    <li>
+      <button mat-raised-button color="primary" (click)="authService.GoogleAuth()" id="google">
+        <img src="../../assets/images/google.svg" alt="">
+      </button>
+    </li>
+  </ul>
+  <p>¿No tienes cuenta aún?
+    <a routerLink="/register-user" routerLinkActive="active">
+      <mat-icon class="material-icons">how_to_reg</mat-icon><span>Regístrate</span>
+    </a></p>
+  <div>
+    <span routerLink="/forgot-password">¿Olvidaste tu contraseña?</span>
+  </div>
+
+</form>

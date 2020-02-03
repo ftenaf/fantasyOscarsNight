@@ -1,0 +1,23 @@
+.form {
+  min-width: 150px;
+  width: 99%;
+  padding: 0px 10px 0px 10px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li button {
+  display: block;
+  margin: 1em;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
