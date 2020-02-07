@@ -36,6 +36,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { MoviesComponent } from './components/movies/movies.component';
 import { TMDBInterceptor } from './shared/interceptors/tmdb.interceptor';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 
 const MatModules = [
   MatButtonModule,
@@ -64,6 +65,7 @@ const MatModules = [
     SignInComponent,
     SignUpComponent,
     MoviesComponent,
+    MovieDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +81,9 @@ const MatModules = [
     AngularFirestoreModule,
     AngularFireFunctionsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+  ],
+  entryComponents:[
+    MovieDetailComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TMDBInterceptor, multi: true},

@@ -7,10 +7,10 @@
     <div fxLayout="column" style="height:55vh;">
       <div fxFlex>
         <mat-nav-list class="navigation-list">
-          <a mat-list-item>
+          <a mat-list-item (click)="authService.SignOut()" *ngIf="authService.isLoggedIn">
             <mat-icon class="material-icons">exit_to_app</mat-icon><span class="navigation-item-label">Logout</span>
           </a>
-          <a class="navigation-item" mat-list-item routerLink="/sign-in" routerLinkActive="active">
+          <a class="navigation-item" mat-list-item routerLink="/sign-in" routerLinkActive="active"  *ngIf="!authService.isLoggedIn">
             <mat-icon class="material-icons">account_box</mat-icon><span class="navigation-item-label">Login</span>
           </a>
           <mat-divider class="navigation-divider"></mat-divider>

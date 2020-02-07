@@ -26,7 +26,17 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              {
+                "glob": "*.svg",
+                "input": "node_modules/flag-icon-css/flags/4x3/",
+                "output": "assets/flags/4x3/"
+              },
+              {
+                "glob": "*.svg",
+                "input": "node_modules/flag-icon-css/flags/1x1/",
+                "output": "assets/flags/1x1/"
+              }
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
@@ -95,7 +105,17 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              {
+                "glob": "*.svg",
+                "input": "node_modules/flag-icon-css/flags/4x3/",
+                "output": "assets/flags/4x3/"
+              },
+              {
+                "glob": "*.svg",
+                "input": "node_modules/flag-icon-css/flags/1x1/",
+                "output": "assets/flags/1x1/"
+              }
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",

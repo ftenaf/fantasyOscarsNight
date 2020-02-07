@@ -6,3 +6,9 @@ table {
   font-size: 14px;
   margin-left: 1em;
 }
+.mat-row {
+  cursor: pointer;
+}
+.mat-row:hover {
+  background-color: gold;
+}

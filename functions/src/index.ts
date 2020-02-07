@@ -43,7 +43,7 @@ function respondSuccess (result: any, res: any) {
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
-export const tmdbapikey = functions.region("europe-west2").https.onCall((data: any, context:  CallableContext) => {
+export const tmdbapikey = functions.region("europe-west1").https.onCall((data: any, context:  CallableContext) => {
   //setCorsHeaders(request, response);
   //respondSuccess(functions.config().moviedb.key, response);
    return functions.config().moviedb.key;
