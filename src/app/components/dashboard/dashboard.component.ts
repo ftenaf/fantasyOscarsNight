@@ -16,8 +16,13 @@ import {
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public authService: AuthService, public notifierService: NotifierService) {}
+  userData: any;
 
-  ngOnInit() {}
+  constructor(public authService: AuthService, public notifierService: NotifierService) {
+    this.userData = authService.userData;
+   }
+
+  ngOnInit() {
+  }
 
 }

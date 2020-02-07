@@ -10,7 +10,11 @@
     "predeploy": [
       "npm --prefix \"$RESOURCE_DIR\" run lint",
       "npm --prefix \"$RESOURCE_DIR\" run build"
-    ]
+    ],
+    "headers": [{
+        "key": "Access-Control-Allow-Origin",
+        "value": "https://oscarsfantasynight.firebaseapp.com/*"
+    }]
   },
   "hosting": {
     "public": "www",
@@ -22,7 +26,11 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "destination": "/index.html",
+        "headers": [{
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://eu-west2-oscarsfantasynight.cloudfunctions.net/*"
+        }]
       }
     ]
   },

@@ -4,7 +4,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { NotifierService } from '../shared/services/notifier.service';
-import { User } from '../model/user.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'

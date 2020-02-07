@@ -50,3 +50,5 @@ bfg.jar
 .gitsecret/keys/random_seed
 !*.secret
 .env
+.runtimeconfig.json
+.firebase

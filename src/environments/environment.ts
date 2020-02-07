@@ -1,21 +1,19 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-const functions = require('firebase-functions');
 
 const firebaseConfig = {
-  apiKey: functions.config().api.key,
+  apiKey: "AIzaSyD7df5hGA33oC3LBbIKcTiJg3GSqnaySns",
   authDomain: "oscarsfantasynight.firebaseapp.com",
   databaseURL: "https://oscarsfantasynight.firebaseio.com",
   projectId: "oscarsfantasynight",
   storageBucket: "oscarsfantasynight.appspot.com",
-  messagingSenderId: functions.config().messaging.senderid,
-  appId: functions.config().app.id
+  messagingSenderId: "913293815216",
+  appId: "1:913293815216:web:c214e5ec6d99b293a27a75"
 };
 
 export const environment = {
   production: false,
-  movieDbKey: functions.config().moviedb.key,
   movieDbUrl: 'https://api.themoviedb.org/3',
   poster_url_prefix: 'https://image.tmdb.org/t/p/w300/',
   firebase: firebaseConfig, 
