@@ -1,0 +1,67 @@
+<mat-dialog-content>
+    <mat-toolbar color="primary">
+      <span>{{movieDetail?.title}}</span>
+      <span class="fill-remaining-space"></span>
+      <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div *ngIf="movieDetail !== undefined; else loader">
+      <div class="blog-card">
+        <div class="meta">
+          <div class="photo"><img [src]="getPosterUrl()" [alt]="movieDetail.title" /></div>
+          <ul class="details">
+            <li>
+                <span *ngFor="let country of movieDetail.production_countries">
+                    <span class="flag-icon {{getCountryFlag(country)}} flag-icon-squared" style="margin: 2px;"></span>
+                </span>
+            </li>
+            <li>{{movieDetail.popularity}}</li>
+            <li>{{movieDetail.release_date}}</li>
+            <li *ngIf="movieDetail.vote_count !== 0">{{movieDetail.vote_average}}
+              ({{movieDetail.vote_count}})</li>
+            <li>{{getMoney(movieDetail.budget)}} $ / {{getMoney(movieDetail.revenue)}} $</li>
+            <li>{{movieDetail.runtime}} minutes</li>
+            <li *ngFor="let genre of movieDetail.genres">{{genre.name}}</li>
+          </ul>
+        </div>
+        <div class="description">
+          <h1>{{movieDetail.title}}</h1>
+          <h2><span *ngFor="let flag of movieDetail.production_countries"
+              class="flag-icon flag-icon-{{ flag.iso_3166_1 }} flag-icon-squared"></span> {{movieDetail.original_title}}
+          </h2>
+          <p> {{movieDetail.overview}}</p>
+          <p class="read-more">
+            <a [href]="movieDetail.homepage" rel="noopener noreferrer" target="_blank">Read More</a>
+          </p>
+          <p class="read-more">
+            <a [href]="getImdbUrl()" rel="noopener noreferrer" target="_blank"><img
+                src="../../../assets/images/imdb.png"></a>
+          </p>
+        </div>
+      </div>
+      <div>
+        <h2>Cast</h2>
+        <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+          <div fxFlex="320px" *ngFor="let castPerson of movieDetail.credits.cast">
+            <mat-card class="card" fxFlex>
+              <mat-card-header>
+                <mat-card-title>{{castPerson.name}}</mat-card-title>
+                <mat-card-subtitle>{{castPerson.character}}</mat-card-subtitle>
+              </mat-card-header>
+              <img [src]="getCastPersonUrl(castPerson.profile_path, castPerson.gender)" [alt]="castPerson.name"
+                class="card-img" />
+              <mat-card-content>
+                {{castPerson.character}}
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+    <ng-template #loader>
+      <app-loading-spinner></app-loading-spinner>
+    </ng-template>
+  </mat-dialog-content>
+  
