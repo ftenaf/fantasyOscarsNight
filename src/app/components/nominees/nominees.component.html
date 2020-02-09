@@ -1,0 +1,52 @@
+  <div *ngIf="nominees !== undefined; else loader">
+    <!-- <button mat-raised-button color="primary" (click)="openAllPanels()">Abrir Todas</button>
+    <button mat-raised-button color="primary" (click)="closeAllPanels()">Cerrar Todas</button> -->
+    <div fxLayout="column">
+      <mat-accordion [multi]="true" #accordion="matAccordion">
+        <mat-expansion-panel [disabled]="panel.isDisabled" [expanded]="panel.isExpanded" [hideToggle]="true"
+          (opened)="beforePanelOpened(panel)" (closed)="beforePanelClosed(panel)" (afterCollapse)="afterPanelClosed()"
+          (afterExpand)="afterPanelOpened()" *ngFor="let panel of nominees" #mapanel="matExpansionPanel">
+          <mat-expansion-panel-header color="primary">
+            <mat-panel-title>
+              <b>{{panel.category_name}}</b>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+  
+          <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+            <div fxFlex="300px" *ngFor="let result of panel.result">
+              <mat-card class="card" fxFlex>
+                <mat-card-header>
+                  <div mat-card-avatar class="header-image"></div>
+                  <mat-card-title>{{result.post_title}}</mat-card-title>
+                  <mat-card-subtitle>{{panel.category_name}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="{{result.featured_image.sizes.featured.url}}" (click)="onDetail(result)"
+                  class="pointer">
+                <mat-card-content>
+                  <p>
+                    {{result.nominee_description}}
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <div fxFlex flex-direction="row">
+                    <!-- <app-likes *ngIf="authService.userData as user" userId="{{authService.userData.uid}}" categoryId="{{panel.id}}" nomineeId="{{result.post_name}}"></app-likes>
+                    <app-votes *ngIf="authService.userData as user" userId="{{authService.userData.uid}}" categoryId="{{panel.id}}" nomineeId="{{result.post_name}}"></app-votes>  -->
+                  </div>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </div>
+          <mat-action-row>
+            <button mat-flat-button (click)="mapanel.close()">Click to close</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  
+  </div>
+  <ng-template #loader>
+    <app-loading-spinner></app-loading-spinner>
+  </ng-template>
+  

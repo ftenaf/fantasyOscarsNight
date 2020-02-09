@@ -152,5 +152,8 @@
       }
     }
   },
-  "defaultProject": "fantasyOscarsNight"
+  "defaultProject": "fantasyOscarsNight",
+  "cli": {
+    "analytics": false
+  }
 }

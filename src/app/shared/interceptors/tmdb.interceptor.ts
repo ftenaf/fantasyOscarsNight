@@ -17,15 +17,20 @@ import {
 import {
   AngularFireFunctions
 } from '@angular/fire/functions';
-
+import { Environment } from '../../../environments/environment-variables';
 @Injectable()
 export class TMDBInterceptor implements HttpInterceptor {
 
-  tmdb: string = "";
+  tmdb: string = ""; // Environment.FANTOS_tmdbkey;
 
   constructor(private fns: AngularFireFunctions) {
-    // const callable = fns.httpsCallable('tmdbapikey');
-    // callable({}).subscribe(x => this.tmdb = x);
+    // const callable = fns.httpsCallable('tmdb_api_key');
+    // console.log("--------->Calling tmdbkey");
+    // callable(JSON.stringify({data: ""})).subscribe(x => {
+    //   console.log("tmdbkey");
+    //   console.log(x);
+    //   this.tmdb = x.result.tmdb_api_key;
+    // });
   }
 
   intercept(req: HttpRequest < any > , next: HttpHandler): Observable < HttpEvent < any >> {

@@ -43,8 +43,12 @@ function respondSuccess (result: any, res: any) {
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
-export const tmdbapikey = functions.region("europe-west1").https.onCall((data: any, context:  CallableContext) => {
+export const tmdb_api_key = functions.region("europe-west1").https.onCall((data: any, context:  CallableContext) => {
   //setCorsHeaders(request, response);
   //respondSuccess(functions.config().moviedb.key, response);
-   return functions.config().moviedb.key;
+   return { tmdb_api_key: functions.config().moviedb.key };
+});
+
+export const proxy_api_url = functions.region("europe-west1").https.onCall((data: any, context:  CallableContext) => {
+   return { proxy_api_url: functions.config().proxy_api.url };
 });

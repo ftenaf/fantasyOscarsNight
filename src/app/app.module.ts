@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -16,7 +16,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatExpansionModule, MatTableModule } from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -33,10 +34,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireFunctionsModule, REGION, ORIGIN } from '@angular/fire/functions';
 import { MoviesComponent } from './components/movies/movies.component';
 import { TMDBInterceptor } from './shared/interceptors/tmdb.interceptor';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { NomineesComponent } from './components/nominees/nominees.component';
 
 const MatModules = [
   MatButtonModule,
@@ -66,6 +68,7 @@ const MatModules = [
     SignUpComponent,
     MoviesComponent,
     MovieDetailComponent,
+    NomineesComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +84,7 @@ const MatModules = [
     AngularFirestoreModule,
     AngularFireFunctionsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    HammerModule,
   ],
   entryComponents:[
     MovieDetailComponent
@@ -88,15 +92,22 @@ const MatModules = [
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TMDBInterceptor, multi: true},
     LoaderService,
-    {
-      provide: FirestoreSettingsToken,
-      useValue: environment.production
-        ? undefined
-        : {
-            host: "localhost:5001",
-            ssl: false
-          }
-    }],
+    { provide: REGION, useValue: 'europe-west1' },
+    { provide: ORIGIN, useValue: 
+      // environment.production? 
+      'https://oscarsfantasynight.web.app' 
+      // : 'http:localhost:5001'
+    }
+    //, {
+    //   provide: FirestoreSettingsToken,
+    //   useValue: environment.production
+    //     ? undefined
+    //     : {
+    //         host: "localhost:5001",
+    //         ssl: false
+    //       }
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
