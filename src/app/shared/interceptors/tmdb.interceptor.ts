@@ -21,7 +21,7 @@ import { Environment } from '../../../environments/environment-variables';
 @Injectable()
 export class TMDBInterceptor implements HttpInterceptor {
 
-  tmdb: string = "749243be475e2ff4ebac43b911d84b37"; // Environment.FANTOS_tmdbkey;
+  tmdb: string = ""; // Environment.FANTOS_tmdbkey;
 
   constructor(private fns: AngularFireFunctions) {
     // const callable = fns.httpsCallable('tmdb_api_key');

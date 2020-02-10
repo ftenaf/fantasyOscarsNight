@@ -20,11 +20,10 @@
             <li class="date">{{movieDetail.release_date}}</li>
             <li class="vote" *ngIf="movieDetail.vote_count !== 0">{{movieDetail.vote_average}}
               ({{movieDetail.vote_count}})</li>
-            <li class="money">{{getMoney(movieDetail.budget)}} $ / {{getMoney(movieDetail.revenue)}} $</li>
+            <li class="money">{{movieDetail.budget | currency : 'USD' : 'symbol' : '1.0-0' }}  / {{movieDetail.revenue  | currency : 'USD' : 'symbol' : '1.0-0' }}</li>
             <li class="time">{{movieDetail.runtime}} minutes</li>
             <li class="tags">
               <ul *ngFor="let genre of movieDetail.genres">
-
                 {{genre.name}}
               </ul>
             </li>
