@@ -1,0 +1,9 @@
+<div class="app-likes">
+    <button mat-raised-button color="primary" (click)="starHandler()">
+      <fa-layers size="3x">
+        <fa-icon [icon]="['fas', 'thumbs-up']" ></fa-icon> LIKE
+        <fa-layers-counter content="{{ countLikes }}"></fa-layers-counter>
+      </fa-layers> 
+    </button>
+  </div>
+  

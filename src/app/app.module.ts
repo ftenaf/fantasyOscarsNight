@@ -39,6 +39,9 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { TMDBInterceptor } from './shared/interceptors/tmdb.interceptor';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { NomineesComponent } from './components/nominees/nominees.component';
+import { LikesComponent } from './components/likes/likes.component';
+import { VotesComponent } from './components/votes/votes.component';
+import { FontAwesomedModule } from './shared/fontAwesome.module';
 
 const MatModules = [
   MatButtonModule,
@@ -69,6 +72,8 @@ const MatModules = [
     MoviesComponent,
     MovieDetailComponent,
     NomineesComponent,
+    LikesComponent,
+    VotesComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +83,8 @@ const MatModules = [
     FlexLayoutModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ...MatModules,
+    ...MatModules,   
+    FontAwesomedModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,

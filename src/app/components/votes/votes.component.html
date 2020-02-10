@@ -1,0 +1,9 @@
+<div class="app-votes" >
+    <button mat-raised-button color="accent" class="botonVote" (click)="starHandler()">
+      <fa-layers size="3x">
+        <fa-icon [icon]="['fas', 'trophy']" ></fa-icon>VOTE
+        <fa-layers-counter content="{{ countVotes }}"></fa-layers-counter>
+      </fa-layers> 
+    </button>
+  </div>
+  

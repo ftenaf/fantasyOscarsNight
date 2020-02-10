@@ -30,9 +30,9 @@
                   </p>
                 </mat-card-content>
                 <mat-card-actions>
-                  <div fxFlex flex-direction="row">
-                    <!-- <app-likes *ngIf="authService.userData as user" userId="{{authService.userData.uid}}" categoryId="{{panel.id}}" nomineeId="{{result.post_name}}"></app-likes>
-                    <app-votes *ngIf="authService.userData as user" userId="{{authService.userData.uid}}" categoryId="{{panel.id}}" nomineeId="{{result.post_name}}"></app-votes>  -->
+                  <div fxFlex class="box">
+                    <app-likes *ngIf="authService.userData as user" userId="{{authService.userData.uid}}" categoryId="{{panel.id}}" nomineeId="{{result.post_name}}"></app-likes>
+                    <app-votes *ngIf="authService.userData as user" userId="{{authService.userData.uid}}" categoryId="{{panel.id}}" nomineeId="{{result.post_name}}"></app-votes>
                   </div>
                 </mat-card-actions>
               </mat-card>

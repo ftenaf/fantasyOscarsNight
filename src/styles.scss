@@ -9,6 +9,34 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     cursor: pointer;
 }
 
+form {
+    width: 100%;
+}
+
+form > * {
+    margin-bottom: 1.5em;
+    width: 100%;
+}
+
+.sidenav-content {
+    flex-direction: column;
+}
+
+.sidenav-container {
+    height: 90%;
+}
+
+.app-content {
+    flex: 1;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .full-width {
     width: 100%;
 }
+

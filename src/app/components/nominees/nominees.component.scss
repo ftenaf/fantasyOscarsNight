@@ -1,26 +1,42 @@
 .card {
-    // width: 400px;
-    margin-top: 1em;
-    background-color: lavender;
-    // flex: 0 0 70vw;
-  }
-  .pointer       { cursor: pointer; }
-  .header-image {
-    background-image: url('../../../assets/images/oscar_mini_bw.png');
-    background-size: cover;
-  }
-  
-  mat-expansion-panel-header {
-    background-color: antiquewhite;
-  }
-  
-  mat-expansion-panel-header:hover {
-    background-color: gold !important;
-  }
-  
-  .mat-expansion-panel-header.mat-expanded {
-    background-color: gold !important;
-  }
-  .mat-card-actions{
-    display: flex;
-  }
+  // width: 400px;
+  margin-top: 1em;
+  background-color: lavender;
+  // flex: 0 0 70vw;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.header-image {
+  background-image: url('../../../assets/images/oscar_mini_bw.png');
+  background-size: cover;
+}
+
+mat-expansion-panel-header {
+  background-color: antiquewhite;
+}
+
+mat-expansion-panel-header:hover {
+  background-color: gold !important;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  background-color: gold !important;
+}
+
+.mat-card-actions {
+  display: flex;
+}
+
+.box {
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  margin:0px;
+}
+.box>* {
+  flex: 1 1 0%;
+  margin: 0em 0.5em;
+}
