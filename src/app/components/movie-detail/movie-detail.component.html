@@ -16,13 +16,18 @@
                     <span class="flag-icon {{getCountryFlag(country)}} flag-icon-squared" style="margin: 2px;"></span>
                 </span>
             </li>
-            <li>{{movieDetail.popularity}}</li>
-            <li>{{movieDetail.release_date}}</li>
-            <li *ngIf="movieDetail.vote_count !== 0">{{movieDetail.vote_average}}
+            <li class="star">{{movieDetail.popularity}}</li>
+            <li class="date">{{movieDetail.release_date}}</li>
+            <li class="vote" *ngIf="movieDetail.vote_count !== 0">{{movieDetail.vote_average}}
               ({{movieDetail.vote_count}})</li>
-            <li>{{getMoney(movieDetail.budget)}} $ / {{getMoney(movieDetail.revenue)}} $</li>
-            <li>{{movieDetail.runtime}} minutes</li>
-            <li *ngFor="let genre of movieDetail.genres">{{genre.name}}</li>
+            <li class="money">{{getMoney(movieDetail.budget)}} $ / {{getMoney(movieDetail.revenue)}} $</li>
+            <li class="time">{{movieDetail.runtime}} minutes</li>
+            <li class="tags">
+              <ul *ngFor="let genre of movieDetail.genres">
+
+                {{genre.name}}
+              </ul>
+            </li>
           </ul>
         </div>
         <div class="description">

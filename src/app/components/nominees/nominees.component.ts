@@ -71,8 +71,10 @@ export class NomineesComponent implements OnInit, OnDestroy {
     const dialogFormConfig = new MatDialogConfig();
     dialogFormConfig.disableClose = true;
     dialogFormConfig.autoFocus = true;
-    dialogFormConfig.width = '95%';
-    dialogFormConfig.maxWidth = '95%';
+    dialogFormConfig.width = '99%';
+    dialogFormConfig.maxWidth = '99%';
+    dialogFormConfig.height = '80%';
+    dialogFormConfig.maxHeight = '80%';
     if (item.nominee_category_dict[0].name.includes("Actor") || item.nominee_category_dict[0].name.includes("Actress")) {
       item.post_title = item.nominee_description;
       dialogFormConfig.data = item;
