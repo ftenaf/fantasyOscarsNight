@@ -52,4 +52,8 @@ bfg.jar
 .env
 .runtimeconfig.json
 .firebase
-oscarsfantasynight-69722957d88c.json
+serviceAccount.json
+database-debug.log
+firestore-debug.log
+pubsub-debug.log
+*.log

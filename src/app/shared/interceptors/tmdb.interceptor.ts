@@ -24,14 +24,16 @@ export class TMDBInterceptor implements HttpInterceptor {
   tmdb: string = ""; // Environment.FANTOS_tmdbkey;
 
   constructor(private fns: AngularFireFunctions) {
-    // const callable = fns.httpsCallable('tmdb_api_key');
-    // console.log("--------->Calling tmdbkey");
-    // callable(JSON.stringify({data: ""})).subscribe(x => {
-    //   console.log("tmdbkey");
-    //   console.log(x);
-    //   this.tmdb = x.result.tmdb_api_key;
-    // });
-  }
+    /*
+     const callable = fns.httpsCallable('tmdb_api_key');
+     console.log("--------->Calling tmdbkey");
+     callable(JSON.stringify({data: ""})).subscribe(x => {
+       console.log("tmdbkey");
+       console.log(x);
+       this.tmdb = x.result.tmdb_api_key;
+     });
+     */
+    }
 
   intercept(req: HttpRequest < any > , next: HttpHandler): Observable < HttpEvent < any >> {
     if (req.url.startsWith(environment.movieDbUrl)) {

@@ -13,6 +13,7 @@
     "server": "npx superstatic www --port 8080 --host 127.0.0.1",
     "build:serve": "npm run build:prod",
     "postbuild:serve": "npm run server",
+    "postbuild": "node version.js",
     "heroku-postbuild": "ng build --configuration=production",
     "lint": "ng lint",
     "test": "ng test",

@@ -21,8 +21,12 @@
     ],
     "rewrites": [
       {
-        "source": "/oscarsfantasynight/europe-west1/tmdbapikey",
-        "function": "tmdbapikey"
+        "source": "/oscarsfantasynight/europe-west1/tmdb_api_key",
+        "function": "tmdb_api_key"
+      },
+      {
+        "source": "/oscarsfantasynight/europe-west1/proxy_api_url",
+        "function": "proxy_api_url"
       },
       {
         "source": "**",

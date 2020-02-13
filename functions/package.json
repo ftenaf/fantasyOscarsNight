@@ -17,7 +17,9 @@
   "dependencies": {
     "firebase-admin": "8.9.2",
     "firebase-functions": "^3.3.0",
-    "firebase-functions-helper": "^0.7.5"
+    "firebase-functions-helper": "^0.7.5",
+    "node-fetch": "^2.6.0",
+    "rxjs": "^6.5.4"
   },
   "devDependencies": {
     "firebase-functions-test": "^0.1.6",

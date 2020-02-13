@@ -7,10 +7,15 @@
         <img mat-card-image src="{{(user.photoURL) ? user.photoURL : '/assets/images/female.png'}}"
         alt="{{user.displayName}}">
         <mat-card-content>
-            <p> </p>
+            <p>Puntos: <strong>{{userPoints$ | async}}</strong></p>
         </mat-card-content>
         <mat-card-actions>
             <button mat-button  (click)="authService.SignOut()">Logout</button>
         </mat-card-actions>
     </mat-card>
+    <!-- <ul [transition-group]="'flip-list'">
+        <li *ngFor="let item of items" transition-group-item>
+          {{ item }}
+        </li>
+      </ul>  -->
 </div>

@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'movies', component: MoviesComponent },
   { path: 'categories', component: NomineesComponent },
+  // { path: '**', component: PageNotFoundComponent }
 ];
 
 

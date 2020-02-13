@@ -42,6 +42,7 @@ import { NomineesComponent } from './components/nominees/nominees.component';
 import { LikesComponent } from './components/likes/likes.component';
 import { VotesComponent } from './components/votes/votes.component';
 import { FontAwesomedModule } from './shared/fontAwesome.module';
+import { TransitionGroupComponent, TransitionGroupItemDirective } from './shared/components/transition-list/transition-list.component';
 
 const MatModules = [
   MatButtonModule,
@@ -74,6 +75,7 @@ const MatModules = [
     NomineesComponent,
     LikesComponent,
     VotesComponent,
+    TransitionGroupComponent, TransitionGroupItemDirective 
   ],
   imports: [
     BrowserModule,
@@ -102,17 +104,18 @@ const MatModules = [
     { provide: ORIGIN, useValue: 
       // environment.production? 
       'https://oscarsfantasynight.web.app' 
-      // : 'http:localhost:5001'
+      // : 
+       //'http:localhost:5001'
     }
-    //, {
-    //   provide: FirestoreSettingsToken,
-    //   useValue: environment.production
-    //     ? undefined
-    //     : {
-    //         host: "localhost:5001",
-    //         ssl: false
-    //       }
-    // }
+    // , {
+    //    provide: FirestoreSettingsToken,
+    //    useValue: environment.production
+    //      ? undefined
+    //      : {
+    //          host: "localhost:5001",
+    //          ssl: false
+    //        }
+    //  }
   ],
   bootstrap: [AppComponent]
 })
