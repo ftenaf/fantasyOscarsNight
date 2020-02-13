@@ -6,17 +6,10 @@ import {
 } from '@angular/fire/firestore';
 
 import {
-  combineLatest,
-  of ,
-  interval
+  combineLatest
 } from 'rxjs';
 import {
-  catchError,
-  startWith,
-  switchMap,
-  retryWhen,
-  delay,
-  map
+  map, catchError
 } from 'rxjs/operators';
 import {
   Nominee,
@@ -64,7 +57,7 @@ export class FantasyService {
   getNominees() {
     // this.oscarsResponse = data;
     // return of(this.oscarsResponse);    
-    return this.firestore.collection('nominees', ref => ref.orderBy('order')).snapshotChanges();
+    return this.firestore.collection('nominees', ref => ref.orderBy('order')).snapshotChanges().pipe(catchError(x => data));
     
   }
 
