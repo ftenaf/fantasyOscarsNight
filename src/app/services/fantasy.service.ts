@@ -59,89 +59,13 @@ export class FantasyService {
   oscarsResponse: OscarsResponse;
 
   constructor(private firestore: AngularFirestore, private fns: AngularFireFunctions, private http: HttpClient, private notifierService: NotifierService) {
-
-    //this.updateNominees();
-  }
-
-  areEqual(obj1: any, obj2: any) {
-    //return JSON.stringify(this.oscarsResponse) !== JSON.stringify(rs)
-    if (obj1 != null) {
-      return Object.keys(obj1).every(key => {
-        return obj2.hasOwnProperty(key) ?
-          typeof obj1[key] === 'object' ?
-          this.areEqual(obj1[key], obj2[key]) :
-          obj1[key] === obj2[key] :
-          false;
-      })
-    }else{
-      return (obj1 === null && obj2 === null);
-    }
-  }
-
-  updateNominees(intervalMilliseconds = 1000 * 60 * 1) {
-    const proxy_api_url = "http://api.scraperapi.com?api_key=&url=";
-    interval(intervalMilliseconds)
-      .pipe(
-        startWith(this.getNominees()),
-        switchMap(() => {
-          const url = "https://d37lefl1k5vay2.cloudfront.net/api/1.0/pages/nominees/2020";
-          const url2 = proxy_api_url + url;
-          const result = this.http.get < OscarsResponse > (url2).pipe(
-            catchError(error => {
-              console.error("error catched", error);
-              return of(error);
-            }))
-          return result;
-        }),
-        retryWhen(errors => errors.pipe(delay(intervalMilliseconds)))
-      )
-      .subscribe(
-        (rs: OscarsResponse) => {
-          if (!this.areEqual(this.oscarsResponse, rs)) {
-            this.setNominees(rs);
-            this.notifierService.warn("¡Noticias desde la academia!");
-          }
-        },
-        error => {}
-      );
-  }
-
-  async setNominees(oscarResponse: OscarsResponse) {
-    /*
-    const callable = this.fns.httpsCallable('importNominees');
-    console.log("--------->Calling importNominees");
-    callable(JSON.stringify(oscarResponse.data.sections.nominees)).subscribe(x => {      
-      console.log(x);
-    });
-    */
-    for (var n in oscarResponse.data.sections.nominees) {
-      try {
-        this.firestore.collection('nominees').doc(n)
-          .set(oscarResponse.data.sections.nominees[n], {
-            merge: true
-          });
-      } catch (error) {
-        console.error(error);
-      }
-    }
   }
 
   getNominees() {
-    this.oscarsResponse = data;
-    return of(this.oscarsResponse);
-    /*
-    const callable = fns.httpsCallable('proxy_api_url');
-    callable(JSON.stringify({data: ""})).subscribe(x => {      
-      const url = "https://d37lefl1k5vay2.cloudfront.net/api/1.0/pages/nominees/2020";
-      const url2 = x.result.proxy_api_url + url;
-      const result = this.http.get<OscarsResponse>(url2).pipe(catchError( error => {
-        console.error("error catched", error);
-        return of(data);
-      }));
-      return result;
-    });
-    */
-    // return this.firestore.collection('nominees', ref => ref.orderBy('order')).snapshotChanges();
+    // this.oscarsResponse = data;
+    // return of(this.oscarsResponse);    
+    return this.firestore.collection('nominees', ref => ref.orderBy('order')).snapshotChanges();
+    
   }
 
   getUserStars(userId: string) {
